@@ -30,10 +30,10 @@ print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
 	print("  {} - {}".format(i + 1, carte.nom))
 
-numero_labyrinthe = input("entrez un numéro de labyrinthe pour commencer à jouer : ")
-numero_labyrinthe = int(numero_labyrinthe)
-choix_labyrinthe = cartes[numero_labyrinthe - 1]
-print(choix_labyrinthe)
+numero_carte = input("entrez un numéro de labyrinthe pour commencer à jouer : ")
+numero_carte = int(numero_carte)
+choix_carte = cartes[numero_carte - 1]
+choix_carte.labyrinthe.deplacement()
 
 
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
