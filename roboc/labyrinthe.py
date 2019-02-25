@@ -10,11 +10,14 @@ class Labyrinthe:
 		self.grille = grille
 		for numero_ligne, ligne in enumerate(self.grille):
 			if "X" in ligne:
+				# On trouve la postion de X :
 				self.robotY = numero_ligne
 				ligne_liste = list(ligne)
 				self.robotX = ligne_liste.index("X")
-				
-
+				# On efface le X initial :
+				ligne_liste[self.robotX] = " "
+				nouvelle_ligne = "".join(ligne_liste)
+				self.grille[self.robotY] = nouvelle_ligne
 
 			
 	def afficher_carte(self):
