@@ -33,6 +33,11 @@ for i, carte in enumerate(cartes):
 numero_carte = input("entrez un numéro de labyrinthe pour commencer à jouer : ")
 numero_carte = int(numero_carte)
 choix_carte = cartes[numero_carte - 1]
+# On efface le X original :
+
+choix_carte.labyrinthe.deplacement()
+choix_carte.labyrinthe.deplacement()
+choix_carte.labyrinthe.deplacement()
 choix_carte.labyrinthe.deplacement()
 
 

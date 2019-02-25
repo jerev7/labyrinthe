@@ -19,10 +19,9 @@ class Carte:
 		grille = chaine.split("\n")
 		# on va créer le robot :
 		
-		nouveau_labyrinthe = Labyrinthe("", grille) # à completer avec en attribut le robot
+		nouveau_labyrinthe = Labyrinthe(grille) # à completer avec en attribut le robot
 		return nouveau_labyrinthe # pour éviter que le nouveau labyrinthe ne se retrouve à la poubelle.
-		print("on a créé un nouveau labyrinthe")
-		
+				
 
 
 	def __repr__(self):

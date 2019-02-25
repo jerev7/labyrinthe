@@ -6,24 +6,26 @@ class Labyrinthe:
 
 	"""Classe représentant un labyrinthe."""
 
-	def __init__(self, robot, grille):
+	def __init__(self, grille):
+		self.grille = grille
 		for numero_ligne, ligne in enumerate(self.grille):
 			if "X" in ligne:
 				self.robotY = numero_ligne
 				ligne_liste = list(ligne)
 				self.robotX = ligne_liste.index("X")
-		self.grille = grille
-	
+				
+
+
+			
 	def afficher_carte(self):
+		
 		for numero_ligne, ligne in enumerate(self.grille):
 			if numero_ligne == self.robotY:
 				ligne_liste = list(ligne)
 				position_robot = self.robotX
-				ligne_liste[position_robot] = "Y"
+				ligne_liste[position_robot] = "X"
 				nouvelle_ligne = "".join(ligne_liste)
 				print(nouvelle_ligne)
-
-
 			else:
 				print(ligne)	
 
@@ -33,7 +35,6 @@ class Labyrinthe:
 		direction = input("choisissez votre direction puis appuyez sur 'Entrée' : \n")
 		nbre_cases = input("choisissez le nombre de cases puis appuyez sur 'Entrée' : \n")
 		direction = direction.lower()
-		self.afficher_carte()
 		print(f"{direction}{nbre_cases}")
 		
 		if nbre_cases == "":
@@ -42,65 +43,22 @@ class Labyrinthe:
 		i = 0
 		if direction == "n":
 			while i < nbre_cases:
-				for numero_ligne, ligne in enumerate(self.grille):
-					if "X" in ligne:
-						ligne_liste = list(ligne)			
-						position_robot = ligne_liste.index("X")
-						ligne_robot = numero_ligne
-						ligne_liste[position_robot] = " "
-						self.grille[ligne_robot] = "".join(ligne_liste)
-				
-				destination = self.grille[ligne_robot - 1]
-				destination_liste = list(destination)					
-				destination_liste[position_robot] = "X"
-				self.grille[ligne_robot - 1] = "".join(destination_liste)	
-			
-
+				self.robotY -= 1
 				#robot garde la même position dans la ligne mais va à la ligne du dessous 
 				i += 1 
 		elif direction == "s":
 			while i < nbre_cases:
-				for numero_ligne, ligne in enumerate(self.grille):
-					if "X" in ligne:
-						ligne_liste = list(ligne)			
-						position_robot = ligne_liste.index("X")
-						ligne_robot = numero_ligne
-						ligne_liste[position_robot] = " "
-						self.grille[ligne_robot] = "".join(ligne_liste)
-				
-				destination = self.grille[ligne_robot + 1]
-				destination_liste = list(destination)					
-				destination_liste[position_robot] = "X"
-				self.grille[ligne_robot + 1] = "".join(destination_liste)
-
+				self.robotY += 1
 				#robot garde la même position dans la ligne mais va à la ligne du dessus 
 				i += 1
 		elif direction == "e":
 			while i < nbre_cases:
-				for numero_ligne, ligne in enumerate(self.grille):
-					if "X" in ligne:
-						ligne_liste = list(ligne)
-						position_robot = ligne_liste.index("X")
-						ligne_robot = numero_ligne
-						ligne_liste[position_robot] = " "
-						ligne_liste[position_robot + 1] = "X"
-						self.grille[ligne_robot] = "".join(ligne_liste)
-					
-
+				self.robotX += 1
 				#position robot dans la ligne += 1
 				i += 1
 		elif direction == "o":
 			while i < nbre_cases:
-				for numero_ligne, ligne in enumerate(self.grille):	
-					if "X" in ligne:
-							ligne_liste = list(ligne)
-							position_robot = ligne_liste.index("X")
-							ligne_robot = numero_ligne
-							ligne_liste[position_robot] = " "
-							ligne_liste[position_robot - 1] = "X"
-							self.grille[ligne_robot] = "".join(ligne_liste)
-
-			
+				self.robotX -= 1			
 				#postion_robot dans la ligne -= 1
 				i += 1
 		
