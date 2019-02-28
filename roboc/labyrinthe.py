@@ -18,6 +18,12 @@ class Labyrinthe:
 				ligne_liste[self.robotX] = " "
 				nouvelle_ligne = "".join(ligne_liste)
 				self.grille[self.robotY] = nouvelle_ligne
+		# on définit l'arrivée :		
+		for numero_ligne, ligne in enumerate(self.grille):
+			if "U" in ligne:
+				self.arriveeY = numero_ligne
+				ligne_liste = list(ligne)
+				self.arriveeX = ligne_liste.index("U")
 
 			
 	def afficher_carte(self):
@@ -47,23 +53,17 @@ class Labyrinthe:
 		if direction == "n":
 			while i < nbre_cases:
 				self.robotY -= 1
-				#robot garde la même position dans la ligne mais va à la ligne du dessous 
 				i += 1 
 		elif direction == "s":
 			while i < nbre_cases:
 				self.robotY += 1
-				#robot garde la même position dans la ligne mais va à la ligne du dessus 
 				i += 1
 		elif direction == "e":
 			while i < nbre_cases:
 				self.robotX += 1
-				#position robot dans la ligne += 1
 				i += 1
 		elif direction == "o":
 			while i < nbre_cases:
 				self.robotX -= 1			
-				#postion_robot dans la ligne -= 1
 				i += 1
-		
-		# On affiche les lignes modifié avec la nouvelle position de X		
 		self.afficher_carte()

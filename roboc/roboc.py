@@ -33,12 +33,12 @@ for i, carte in enumerate(cartes):
 numero_carte = input("entrez un numéro de labyrinthe pour commencer à jouer : ")
 numero_carte = int(numero_carte)
 choix_carte = cartes[numero_carte - 1]
-# On efface le X original :
+print(choix_carte)
+choix_carte.labyrinthe.afficher_carte()
 
-choix_carte.labyrinthe.deplacement()
-choix_carte.labyrinthe.deplacement()
-choix_carte.labyrinthe.deplacement()
-choix_carte.labyrinthe.deplacement()
+while choix_carte.labyrinthe.robotX != choix_carte.labyrinthe.arriveeX or choix_carte.labyrinthe.robotY != choix_carte.labyrinthe.arriveeY:
+	choix_carte.labyrinthe.deplacement()
+print("vous avez gagné !")
 
 
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
