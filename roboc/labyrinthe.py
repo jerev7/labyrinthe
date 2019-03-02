@@ -59,22 +59,27 @@ class Labyrinthe:
 		
 		if direction == "n":
 			if (self.robotY - nbre_cases) >= self.limite_nord:
-					self.robotY -= nbre_cases
+				self.robotY -= nbre_cases
 			else:
 				print("limites de la carte atteintes...") 
 		elif direction == "s":
 			if (nbre_cases + self.robotY) <= self.limite_sud:
-					self.robotY += nbre_cases
+				self.robotY += nbre_cases
 			else:
 				print("limites de la carte atteintes...")		
 		elif direction == "e":
 			if (nbre_cases + self.robotX) <= self.limite_est:
+				ligne = self.grille[self.robotY]
+				ligne_liste = list(ligne)
+				if ligne_liste[(nbre_cases + self.robotX)] == "O":
+					print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+				else:
 					self.robotX += nbre_cases
 			else:
 				print("limites de la carte atteintes...")
 		elif direction == "o":
 			if (self.robotX - nbre_cases) >= self.limite_ouest:
-					self.robotX -= nbre_cases			
+				self.robotX -= nbre_cases			
 			else:
 				print("limites de la carte atteintes...")
 		self.afficher_carte()
