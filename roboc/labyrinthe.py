@@ -24,6 +24,15 @@ class Labyrinthe:
 				self.arriveeY = numero_ligne
 				ligne_liste = list(ligne)
 				self.arriveeX = ligne_liste.index("U")
+		# On définit les limites de la carte :
+		
+		for numero_ligne, ligne in enumerate(self.grille):
+			self.ligne_liste = list(ligne)
+			self.limite_est = len(ligne_liste) - 1
+			self.limite_ouest = 1
+			self.limite_nord = 1
+		self.limite_sud = numero_ligne	 
+
 
 			
 	def afficher_carte(self):
@@ -50,20 +59,35 @@ class Labyrinthe:
 			nbre_cases = 1
 		nbre_cases =int(nbre_cases)
 		i = 0
+		
+
+		
 		if direction == "n":
-			while i < nbre_cases:
-				self.robotY -= 1
-				i += 1 
+			if self.robotY >= self.limite_nord:
+				while i < nbre_cases:
+					self.robotY -= 1
+					i += 1
+			else:
+				print("limites de la carte atteintes...") 
 		elif direction == "s":
-			while i < nbre_cases:
-				self.robotY += 1
-				i += 1
+			if self.robotY < self.limite_sud:
+				while i < nbre_cases:
+					self.robotY += 1
+					i += 1
+			else:
+				print("limites de la carte atteintes...")		
 		elif direction == "e":
-			while i < nbre_cases:
-				self.robotX += 1
-				i += 1
+			if self.robotX <= self.limite_est:
+				while i < nbre_cases:
+					self.robotX += 1
+					i += 1
+			else:
+				print("limites de la carte atteintes...")
 		elif direction == "o":
-			while i < nbre_cases:
-				self.robotX -= 1			
-				i += 1
+			if self.robotX >= self.limite_ouest:
+				while i < nbre_cases:
+					self.robotX -= 1			
+					i += 1
+			else:
+				print("limites de la carte atteintes...")
 		self.afficher_carte()
