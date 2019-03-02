@@ -83,17 +83,26 @@ class Labyrinthe:
 				print("limites de la carte atteintes...")		
 		elif direction == "e":
 			if (nbre_cases + self.robotX) <= self.limite_est:
-				ligne = self.grille[self.robotY]
-				ligne_liste = list(ligne)
-				if ligne_liste[(nbre_cases + self.robotX)] == "O":
-					print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
-				else:
-					self.robotX += nbre_cases
+				for i_case in range(nbre_cases):
+					ligne = self.grille[self.robotY]
+					ligne_liste = list(ligne)
+					if ligne_liste[(self.robotX + 1)] == "O":
+						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						break
+					else:
+						self.robotX += 1
 			else:
 				print("limites de la carte atteintes...")
 		elif direction == "o":
 			if (self.robotX - nbre_cases) >= self.limite_ouest:
-				self.robotX -= nbre_cases			
+				for i_case in range(nbre_cases):
+					ligne = self.grille[self.robotY]
+					ligne_liste = list(ligne)
+					if ligne_liste[(self.robotX - nbre_cases)] == "O":
+						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						break
+					else:
+						self.robotX -= 1		
 			else:
 				print("limites de la carte atteintes...")
 		self.afficher_carte()
