@@ -52,56 +52,61 @@ class Labyrinthe:
 		direction = input("choisissez votre direction puis appuyez sur 'Entrée' : \n")
 		nbre_cases = input("choisissez le nombre de cases puis appuyez sur 'Entrée' : \n")
 		direction = direction.lower()
-		print(f"{direction}{nbre_cases}")
 		if nbre_cases == "":
 			nbre_cases = 1
 		nbre_cases =int(nbre_cases)
 		
 		if direction == "n":
+			print(f"{direction}{nbre_cases}")
 			if (self.robotY - nbre_cases) >= self.limite_nord:
 				for i_case in range(nbre_cases):
 					ligne = self.grille[self.robotY - 1]
 					ligne_liste = list(ligne)
 					if ligne_liste[self.robotX] == "O":
-						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
 						break
 					else:
 						self.robotY -= 1
 			else:
-				print("limites de la carte atteintes...") 
+				print("Limites de la carte atteintes...") 
 		elif direction == "s":
+			print(f"{direction}{nbre_cases}")
 			if (nbre_cases + self.robotY) <= self.limite_sud:
 				for i_case in range(nbre_cases):
 					ligne = self.grille[self.robotY + 1]
 					ligne_liste = list(ligne)
 					if ligne_liste[self.robotX] == "O":
-						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
 						break
 					else:
 						self.robotY += 1
 			else:
-				print("limites de la carte atteintes...")		
+				print("Limites de la carte atteintes...")		
 		elif direction == "e":
+			print(f"{direction}{nbre_cases}")
 			if (nbre_cases + self.robotX) <= self.limite_est:
 				for i_case in range(nbre_cases):
 					ligne = self.grille[self.robotY]
 					ligne_liste = list(ligne)
 					if ligne_liste[(self.robotX + 1)] == "O":
-						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
 						break
 					else:
 						self.robotX += 1
 			else:
-				print("limites de la carte atteintes...")
+				print("Limites de la carte atteintes...")
 		elif direction == "o":
+			print(f"{direction}{nbre_cases}")
 			if (self.robotX - nbre_cases) >= self.limite_ouest:
 				for i_case in range(nbre_cases):
 					ligne = self.grille[self.robotY]
 					ligne_liste = list(ligne)
 					if ligne_liste[(self.robotX - 1)] == "O":
-						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
 						break
 					else:
 						self.robotX -= 1		
 			else:
-				print("limites de la carte atteintes...")
+				print("Limites de la carte atteintes...")
+		else:
+			print("Direction incorrecte, veuillez taper : \n- n pour Nord \n- s pour Sud \n- e pour Est \n- o pour Ouest")
