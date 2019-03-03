@@ -98,7 +98,7 @@ class Labyrinthe:
 				for i_case in range(nbre_cases):
 					ligne = self.grille[self.robotY]
 					ligne_liste = list(ligne)
-					if ligne_liste[(self.robotX - nbre_cases)] == "O":
+					if ligne_liste[(self.robotX - 1)] == "O":
 						print("il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
 						break
 					else:
