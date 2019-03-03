@@ -38,6 +38,7 @@ choix_carte.labyrinthe.afficher_carte()
 
 while choix_carte.labyrinthe.robotX != choix_carte.labyrinthe.arriveeX or choix_carte.labyrinthe.robotY != choix_carte.labyrinthe.arriveeY:
 	choix_carte.labyrinthe.deplacement()
+	choix_carte.labyrinthe.afficher_carte()
 print("vous avez gagné !")
 
 

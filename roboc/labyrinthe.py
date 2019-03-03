@@ -105,4 +105,3 @@ class Labyrinthe:
 						self.robotX -= 1		
 			else:
 				print("limites de la carte atteintes...")
-		self.afficher_carte()
