@@ -35,7 +35,7 @@ class Labyrinthe:
 
 			
 	def afficher_carte(self):
-		
+		carte_encours = []
 		for numero_ligne, ligne in enumerate(self.grille):
 			if numero_ligne == self.robotY:
 				ligne_liste = list(ligne)
@@ -43,8 +43,15 @@ class Labyrinthe:
 				ligne_liste[position_robot] = "X"
 				nouvelle_ligne = "".join(ligne_liste)
 				print(nouvelle_ligne)
+				carte_encours.append(nouvelle_ligne)
 			else:
-				print(ligne)	
+				print(ligne)
+				carte_encours.append(ligne)
+		carte_encours_str = "\n".join(carte_encours)
+		# on creer un fichier carte qui s'appelle partie_en_cours.txt et qui contient la carte actuelle avec le dernier deplacement appliqué :
+		fichier_carte_en_cours = open("cartes/partie en cours.txt", "w")
+		fichier_carte_en_cours.write(carte_encours_str)
+		fichier_carte_en_cours.close()
 
 		
 	def deplacement(self):
