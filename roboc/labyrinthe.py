@@ -68,7 +68,7 @@ class Labyrinthe:
 					else:
 						self.robotY -= 1
 			else:
-				print("Limites de la carte atteintes...") 
+				print("Limites de la carte atteintes... Recommencez !") 
 		elif direction == "s":
 			print(f"{direction}{nbre_cases}")
 			if (nbre_cases + self.robotY) <= self.limite_sud:
@@ -81,7 +81,7 @@ class Labyrinthe:
 					else:
 						self.robotY += 1
 			else:
-				print("Limites de la carte atteintes...")		
+				print("Limites de la carte atteintes... Recommencez !")		
 		elif direction == "e":
 			print(f"{direction}{nbre_cases}")
 			if (nbre_cases + self.robotX) <= self.limite_est:
@@ -94,7 +94,7 @@ class Labyrinthe:
 					else:
 						self.robotX += 1
 			else:
-				print("Limites de la carte atteintes...")
+				print("Limites de la carte atteintes... Recommencez !")
 		elif direction == "o":
 			print(f"{direction}{nbre_cases}")
 			if (self.robotX - nbre_cases) >= self.limite_ouest:
@@ -107,6 +107,6 @@ class Labyrinthe:
 					else:
 						self.robotX -= 1		
 			else:
-				print("Limites de la carte atteintes...")
+				print("Limites de la carte atteintes... Recommencez !")
 		else:
 			print("Direction incorrecte, veuillez taper : \n- n pour Nord \n- s pour Sud \n- e pour Est \n- o pour Ouest")
