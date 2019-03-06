@@ -39,16 +39,5 @@ choix_carte.labyrinthe.afficher_carte()
 while choix_carte.labyrinthe.robotX != choix_carte.labyrinthe.arriveeX or choix_carte.labyrinthe.robotY != choix_carte.labyrinthe.arriveeY:
 	choix_carte.labyrinthe.deplacement()
 	choix_carte.labyrinthe.afficher_carte()
-	# on creer un fichier carte qui s'appelle partie_en_cours.txt et qui contient la carte actuelle avec le dernier deplacement appliqué :
-	
-	
-
-
-
-	
 print("vous avez gagné !")
-
-
-# Si il y a une partie sauvegardée, on l'affiche, à compléter
-
-# ... Complétez le programme ...
+os.remove("cartes/partie en cours.txt")
