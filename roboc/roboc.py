@@ -7,7 +7,7 @@ Exécutez-le avec Python pour lancer le jeu.
 """
 
 import os
-import pickle
+
 from carte import Carte
 from labyrinthe import Labyrinthe
 
@@ -39,5 +39,5 @@ choix_carte.labyrinthe.afficher_carte()
 while choix_carte.labyrinthe.robotX != choix_carte.labyrinthe.arriveeX or choix_carte.labyrinthe.robotY != choix_carte.labyrinthe.arriveeY:
 	choix_carte.labyrinthe.deplacement()
 	choix_carte.labyrinthe.afficher_carte()
-print("vous avez gagné !")
+print("Vous avez trouvé la sortie, félicitations ! La partie est terminée")
 os.remove("cartes/partie en cours.txt")

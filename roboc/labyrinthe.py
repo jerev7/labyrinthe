@@ -35,7 +35,7 @@ class Labyrinthe:
 
 			
 	def afficher_carte(self):
-		carte_encours = []
+		carte_en_cours = []
 		for numero_ligne, ligne in enumerate(self.grille):
 			if numero_ligne == self.robotY:
 				ligne_liste = list(ligne)
@@ -43,14 +43,14 @@ class Labyrinthe:
 				ligne_liste[position_robot] = "X"
 				nouvelle_ligne = "".join(ligne_liste)
 				print(nouvelle_ligne)
-				carte_encours.append(nouvelle_ligne)
+				carte_en_cours.append(nouvelle_ligne)
 			else:
 				print(ligne)
-				carte_encours.append(ligne)
-		carte_encours_str = "\n".join(carte_encours)
+				carte_en_cours.append(ligne)
+		carte_en_cours_str = "\n".join(carte_en_cours)
 		# on creer un fichier carte qui s'appelle partie_en_cours.txt et qui contient la carte actuelle avec le dernier deplacement appliqué :
 		fichier_carte_en_cours = open("cartes/partie en cours.txt", "w")
-		fichier_carte_en_cours.write(carte_encours_str)
+		fichier_carte_en_cours.write(carte_en_cours_str)
 		fichier_carte_en_cours.close()
 
 		
@@ -70,7 +70,7 @@ class Labyrinthe:
 					ligne = self.grille[self.robotY - 1]
 					ligne_liste = list(ligne)
 					if ligne_liste[self.robotX] == "O":
-						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez plus vous déplacer dans cette direction")
 						break
 					else:
 						self.robotY -= 1
@@ -83,7 +83,7 @@ class Labyrinthe:
 					ligne = self.grille[self.robotY + 1]
 					ligne_liste = list(ligne)
 					if ligne_liste[self.robotX] == "O":
-						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez plus vous déplacer dans cette direction")
 						break
 					else:
 						self.robotY += 1
@@ -96,7 +96,7 @@ class Labyrinthe:
 					ligne = self.grille[self.robotY]
 					ligne_liste = list(ligne)
 					if ligne_liste[(self.robotX + 1)] == "O":
-						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez plus vous déplacer dans cette direction")
 						break
 					else:
 						self.robotX += 1
@@ -109,7 +109,7 @@ class Labyrinthe:
 					ligne = self.grille[self.robotY]
 					ligne_liste = list(ligne)
 					if ligne_liste[(self.robotX - 1)] == "O":
-						print("Il y a un mur, vous ne pouvez pas vous déplacer dans cette direction")
+						print("Il y a un mur, vous ne pouvez plus vous déplacer dans cette direction")
 						break
 					else:
 						self.robotX -= 1		
